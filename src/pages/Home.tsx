@@ -21,12 +21,13 @@ import EventList from '../components/Event/Event_List';
 import { Redirect } from 'react-router-dom';
 import { ellipsisVertical } from 'ionicons/icons';
 
-const Home: React.FC = () => {
+const Home = () => {
   const { state,dispatch } = useContext(AppContext);
   const [showUserMenuEvent, setShowUserMenuEvent] = useState(null);
+
   const doLogout = () => {    
     setShowUserMenuEvent(null);
-    dispatch({type:'SET_USER',value:''});       
+    dispatch({type:'SET_USER',value:null});       
   };
 
   if (!state.user) {   

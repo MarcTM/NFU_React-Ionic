@@ -1,7 +1,8 @@
 import React from 'react';
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButton, IonLabel, IonInput,IonItem,IonCheckbox,IonSelect, IonSelectOption, IonDatetime } from '@ionic/react';
 
-import './create.css';
+import './Create.css';
+
 const Create= () => {
   return (
     <IonPage>
@@ -33,7 +34,7 @@ const Create= () => {
             </IonItem>
             <IonItem>
               <IonLabel position="floating">Ubicación</IonLabel>
-              <IonInput type="test" />
+              <IonInput type="text" />
               <IonLabel position="floating">City</IonLabel>
               <IonInput type="text" />
               <IonLabel position="floating">State</IonLabel>
