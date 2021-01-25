@@ -1,4 +1,4 @@
-import React, { useContext, useState, useRef, useEffect } from 'react';
+import React, { useContext, useState } from 'react';
 import { AppContext } from '../State';
 import { useHistory } from 'react-router-dom';
 
@@ -24,16 +24,7 @@ const Login = () => {
     const [ showLoading, setShowLoading ] = useState(false);
     
     const history = useHistory();
-    const formRef = useRef(null);
-
-
-    // useEffect(() => {
-    //     let isMounted = true;
-    //     someAsyncOperation().then(data => {
-    //       if (isMounted) setState(data);
-    //     })
-    //     return () => { isMounted = false };
-    // });
+      
       
     // Submit login form
     function handleSubmit(e) {
@@ -65,7 +56,7 @@ const Login = () => {
 
         <IonContent className="form">
             <IonLoading isOpen={showLoading} message={'Logging in'} onDidDismiss={() => setShowLoading(false)}/>
-            <form onSubmit={e => (handleSubmit(e))} method="post" ref={formRef} action="">
+            <form onSubmit={e => (handleSubmit(e))}>
                 <IonList>
                     <IonItem>
                         <IonLabel position={'fixed'}>Email</IonLabel>

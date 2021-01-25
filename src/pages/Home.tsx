@@ -28,9 +28,11 @@ const Home = () => {
 
 
   // Logout button
-  const doLogout = () => {    
+  const doLogout = (e) => {    
+    e.preventDefault();
+
     setShowUserMenuEvent(null);
-    dispatch({type:'SET_USER',value:null});    
+    dispatch({type:'LOGOUT'});    
     history.push("/login")   
   };
 
@@ -55,7 +57,7 @@ const Home = () => {
             onDidDismiss={() => setShowUserMenuEvent(null)}>
           <IonContent>
             <IonList>
-              <IonItem onClick={e => { e.preventDefault(); doLogout()}} detail={true} href="">
+              <IonItem onClick={e => {doLogout(e)}} detail={true} href="">
                 <IonLabel>LOGOUT</IonLabel>
               </IonItem>
               <IonItem>
