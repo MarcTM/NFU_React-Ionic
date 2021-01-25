@@ -14,29 +14,29 @@ import {
   IonButtons,
   IonButton,
   IonIcon 
-
 } from '@ionic/react';
+
 import './Home.css';
 import EventList from '../components/Event/Event_List';
-import { Redirect } from 'react-router-dom';
+import {  useHistory } from 'react-router-dom';
 import { ellipsisVertical } from 'ionicons/icons';
 
 const Home = () => {
   const { state,dispatch } = useContext(AppContext);
   const [showUserMenuEvent, setShowUserMenuEvent] = useState(null);
+  const history = useHistory();
 
+
+  // Logout button
   const doLogout = () => {    
     setShowUserMenuEvent(null);
-    dispatch({type:'SET_USER',value:null});       
+    dispatch({type:'SET_USER',value:null});    
+    history.push("/login")   
   };
 
-  if (!state.user) {   
-    return <Redirect to="/" /> 
-  }
 
   return (
     <IonPage>
-     
       <IonHeader>
         <IonToolbar>
           <IonTitle>HOME</IonTitle>
@@ -47,6 +47,7 @@ const Home = () => {
           </IonButtons>
         </IonToolbar>
       </IonHeader>
+
       <IonContent fullscreen>   
          <IonPopover
             event={showUserMenuEvent}
